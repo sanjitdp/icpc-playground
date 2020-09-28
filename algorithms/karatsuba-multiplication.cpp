@@ -34,6 +34,16 @@ int main() {
     std::string m;
     std::string n;
     std::cin >> m >> n;
+    const short m_len = m.length();
+    const short n_len = n.length();
+    if (m.length() > n.length()) {
+        m.insert(0, pow(2, m_len) - m_len, '0');
+        n.insert(0, pow(2, m_len) - n_len, '0');
+    } else {
+        m.insert(0, pow(2, n_len) - m_len, '0');
+        n.insert(0, pow(2, n_len) - n_len, '0');
+    }
+
     std::cout << karatsuba(m, n);
     return 0;
 }
